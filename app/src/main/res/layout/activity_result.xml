@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".ResultActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:elevation="0dp"
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <com.google.android.material.appbar.MaterialToolbar
+            app:title="Quiz Result"
+            app:titleCentered="true"
+            app:titleTextColor="@color/text_color"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        app:cardBackgroundColor="@color/card_background"
+        app:strokeWidth="5dp"
+        app:strokeColor="#8B7CCC"
+        app:cardCornerRadius="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/resultImage"
+                android:src="@drawable/ic_smile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"/>
+
+            <TextView
+                android:id="@+id/resultInfo"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="Result Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/resultPercentText"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="Percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/percentageProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="20dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="0"
+                android:progressTint="#8B7CCC" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            app:cardBackgroundColor="@color/card_background"
+            app:strokeWidth="5dp"
+            app:strokeColor="#8B7CCC"
+            app:cardCornerRadius="25dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+                <ImageView
+                    android:src="@drawable/ic_correct"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:text="Correct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/correctScore"
+                    android:textColor="@color/text_secondary_color"
+                    android:textSize="13sp"
+                    android:text="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            app:cardBackgroundColor="@color/card_background"
+            app:strokeWidth="5dp"
+            app:cardCornerRadius="25dp"
+            app:strokeColor="#8B7CCC"
+            android:layout_marginHorizontal="25dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+                <ImageView
+                    android:src="@drawable/ic_wrong"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:text="Wrong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/wrongScore"
+                    android:textColor="@color/text_secondary_color"
+                    android:textSize="13sp"
+                    android:text="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/returnHome"
+        app:cardBackgroundColor="@color/card_background"
+        app:strokeWidth="5dp"
+        app:strokeColor="#8B7CCC"
+        app:cardCornerRadius="25dp"
+        android:layout_marginHorizontal="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+            <TextView
+                android:id="@+id/resultTextview"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="Return to Homepage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

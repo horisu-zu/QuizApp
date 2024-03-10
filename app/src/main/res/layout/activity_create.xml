@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/title"
+        app:strokeWidth="10dp"
+        app:strokeColor="#8B7CCC"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/titleLayout"
+            android:text="Create new Quiz item"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:textColor="#573FC1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/questionCard"
+        app:cardCornerRadius="10dp"
+        app:strokeWidth="5dp"
+        app:strokeColor="#8B7CCC"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        >
+
+        <EditText
+            android:id="@+id/questionEdit"
+            android:hint="question edit..."
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageButton
+        android:id="@+id/addButton"
+        android:src="@drawable/ic_add"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="#8B7CCC"
+        app:layout_constraintTop_toBottomOf="@id/questionCard"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/answersRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/answersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="20dp"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/addButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:nestedScrollingEnabled="false"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/correctAnswerCard"
+        app:cardCornerRadius="10dp"
+        app:strokeWidth="5dp"
+        app:strokeColor="#8B7CCC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/answersRecyclerView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="30dp"
+        >
+
+        <TextView
+            android:id="@+id/correctAnswerView"
+            android:text="correct answer..."
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageButton
+        android:id="@+id/saveButton"
+        android:src="@drawable/ic_save"
+        android:background="#8B7CCC"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/correctAnswerCard"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="40dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

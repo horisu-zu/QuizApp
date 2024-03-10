@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/editCard"
+        app:strokeWidth="5dp"
+        app:strokeColor="#8B7CCC"
+        app:cardCornerRadius="10dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/answer_edit"
+            android:text="answer edit..."
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageButton
+        android:id="@+id/setAnswerAsCorrectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="end"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:src="@drawable/ic_add"
+        android:text="+"
+        android:layout_marginStart="25dp"
+        app:layout_constraintLeft_toRightOf="@id/editCard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
