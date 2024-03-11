@@ -36,6 +36,7 @@ public class Utils {
                 noteObject.put("answer#" + j, answersList.get(j));
             }
             noteObject.put("correct", quizItems.get(i).getQuizCorrectAnswer());
+            noteObject.put("theme", quizItems.get(i).getQuizTheme());
 
             notesArray.put(noteObject);
         }
@@ -63,6 +64,7 @@ public class Utils {
 
                 String question = noteObject.optString("question", "");
                 String correct = noteObject.optString("correct", "");
+                String theme = noteObject.optString("theme", "");
                 List<String> answersList = new ArrayList<>();
                 int j = 0;
                 while (noteObject.has("answer#" + j)) {
@@ -71,7 +73,7 @@ public class Utils {
                     j++;
                 }
 
-                quizItems.add(new QuizItem(question, answersList, correct));
+                quizItems.add(new QuizItem(question, answersList, correct, theme));
             }
         } catch (JSONException e) {
             Log.e("questions", "Error parsing JSON: " + e.getMessage());

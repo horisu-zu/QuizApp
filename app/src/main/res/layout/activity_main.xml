@@ -77,7 +77,33 @@
                         android:textStyle="bold"
                         android:textColor="@color/text_color"
                         android:textSize="20sp"
-                        android:text="Add new Quiz"
+                        android:text="Add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/glossaryCard"
+                app:cardBackgroundColor="@color/card_background"
+                app:strokeWidth="10dp"
+                app:strokeColor="#8B7CCC"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"
+                        android:textSize="20sp"
+                        android:text="Glossary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>

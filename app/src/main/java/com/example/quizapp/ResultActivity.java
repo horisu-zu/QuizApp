@@ -67,11 +67,4 @@ public class ResultActivity extends AppCompatActivity {
         startActivity(new Intent(ResultActivity.this, MainActivity.class));
         finish();
     }
-
-    /*@Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        startActivity(new Intent(ResultActivity.this, MainActivity.class));
-        finish();
-    }*/
 }
