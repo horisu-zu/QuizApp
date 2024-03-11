@@ -109,12 +109,20 @@ public class ThemeUtils {
 
             out.write(file.getBytes());
             out.close();
-
-            Toast.makeText(context, "Themes file saved!",
-                    Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(context, "Error: " + e.getMessage(),
                     Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static void clearThemes(Context context) {
+        JSONObject jsonObject = new JSONObject();
+
+        try {
+            jsonObject.put("themes", new JSONArray());
+            saveThemes(jsonObject.toString(), context);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -63,6 +63,6 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeViewHol
     }
 
     private String getImageUrlForTheme(Theme theme) {
-        return "https://example.com/image.jpg";
+        return theme.getImagePath();
     }
 }
