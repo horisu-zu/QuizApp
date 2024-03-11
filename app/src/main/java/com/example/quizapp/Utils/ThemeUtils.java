@@ -27,6 +27,7 @@ public class ThemeUtils {
         for (Theme theme : themes) {
             JSONObject themeObject = new JSONObject();
             themeObject.put("theme", theme.getTheme());
+            themeObject.put("imagePath", theme.getImagePath());
             themesArray.put(themeObject);
         }
 
@@ -51,7 +52,8 @@ public class ThemeUtils {
             for (int i = 0; i < themesArray.length(); i++) {
                 JSONObject themeObject = themesArray.getJSONObject(i);
                 String theme = themeObject.optString("theme", "");
-                themes.add(new Theme(theme));
+                String imagePath = themeObject.optString("imagePath", "");
+                themes.add(new Theme(theme, imagePath));
             }
         } catch (JSONException e) {
             Log.e("themes", "Error parsing JSON: " + e.getMessage());

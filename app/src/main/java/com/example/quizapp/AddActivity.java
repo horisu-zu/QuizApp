@@ -30,7 +30,8 @@ public class AddActivity extends AppCompatActivity {
         themeCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //will be theme creator later
+                Intent intent = new Intent(AddActivity.this, ThemeCreateActivity.class);
+                startActivity(intent);
             }
         });
     }
