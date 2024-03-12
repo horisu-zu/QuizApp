@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.quizapp.Listener.AnswerListener;
 import com.example.quizapp.Models.Theme;
 import com.example.quizapp.R;
 
@@ -20,9 +21,11 @@ import java.util.List;
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeViewHolder>{
 
     List<Theme> themeList;
+    private AnswerListener themeClickListener;
 
-    public ThemeAdapter(List<Theme> themeList) {
+    public ThemeAdapter(List<Theme> themeList, AnswerListener themeClickListener) {
         this.themeList = themeList;
+        this.themeClickListener = themeClickListener;
     }
 
     @NonNull
@@ -43,6 +46,15 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ThemeViewHol
                 .load(getImageUrlForTheme(theme))
                 .placeholder(R.drawable.placeholder_image)
                 .into(holder.themeIcon);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (themeClickListener != null) {
+                    themeClickListener.onItemClick(holder.getAdapterPosition());
+                }
+            }
+        });
     }
 
     @Override

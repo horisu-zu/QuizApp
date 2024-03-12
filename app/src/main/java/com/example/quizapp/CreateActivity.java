@@ -110,7 +110,8 @@ public class CreateActivity extends AppCompatActivity {
 
         QuizItem newQuizItem = new QuizItem(question, answers, correctAnswer, theme);
 
-        List<QuizItem> existingQuizItems = Utils.loadAllQuestions(this);
+        List<QuizItem> existingQuizItems = Utils.loadQuestionsByTheme(this,
+                "Universal");
 
         existingQuizItems.add(newQuizItem);
 
@@ -129,20 +130,23 @@ public class CreateActivity extends AppCompatActivity {
     private void showThemeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(CreateActivity.this);
         builder.setTitle("Select Theme")
-                .setItems(getThemesTitles(), new DialogInterface.OnClickListener() {
+                .setItems(getThemesWithTitles(), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Theme selectedTheme = themeList.get(which);
-                        themeView.setText(selectedTheme.getTheme());
+                        String selectedTheme = getThemesWithTitles()[which];
+                        themeView.setText(selectedTheme);
                     }
                 });
         builder.create().show();
     }
 
-    private String[] getThemesTitles() {
-        String [] themesTitles = new String[themeList.size()];
-        for(int i = 0; i < themeList.size(); i++) {
-            themesTitles[i] = themeList.get(i).getTheme();
+    private String[] getThemesWithTitles() {
+        List<String> themesTitlesWithoutUniversal = new ArrayList<>();
+        for (Theme theme : themeList) {
+            if (!theme.getTheme().equals("Universal")) {
+                themesTitlesWithoutUniversal.add(theme.getTheme());
+            }
         }
-        return themesTitles;
+        return themesTitlesWithoutUniversal.toArray(new String[0]);
     }
+
 }

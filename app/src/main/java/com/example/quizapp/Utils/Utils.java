@@ -44,7 +44,7 @@ public class Utils {
         return notesArray;
     }
 
-    public static List<QuizItem> loadAllQuestions(Context context) {
+    public static List<QuizItem> loadQuestionsByTheme(Context context, String selectedTheme) {
         List<QuizItem> quizItems = new ArrayList<>();
         String result = readNotes(context);
 
@@ -73,7 +73,9 @@ public class Utils {
                     j++;
                 }
 
-                quizItems.add(new QuizItem(question, answersList, correct, theme));
+                if (selectedTheme.equals("Universal") || theme.equals(selectedTheme)) {
+                    quizItems.add(new QuizItem(question, answersList, correct, theme));
+                }
             }
         } catch (JSONException e) {
             Log.e("questions", "Error parsing JSON: " + e.getMessage());

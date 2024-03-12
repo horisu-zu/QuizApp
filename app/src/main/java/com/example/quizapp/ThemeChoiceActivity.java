@@ -6,9 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.quizapp.Adapters.ThemeAdapter;
+import com.example.quizapp.Listener.AnswerListener;
 import com.example.quizapp.Models.Theme;
 import com.example.quizapp.Utils.ThemeUtils;
 
@@ -32,9 +35,22 @@ public class ThemeChoiceActivity extends AppCompatActivity {
         themeList = ThemeUtils.loadAllThemes(this);
         //themeList.addAll();
 
-        themeAdapter = new ThemeAdapter(themeList);
+        themeAdapter = new ThemeAdapter(themeList, themeClickListener);
 
         themeRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         themeRecycler.setAdapter(themeAdapter);
     }
+
+    private final AnswerListener themeClickListener = new AnswerListener() {
+        @Override
+        public void onItemClick(int position) {
+            Theme selectedTheme = themeList.get(position);
+
+            Intent quizIntent = new Intent(ThemeChoiceActivity.this,
+                    QuizActivity.class);
+            quizIntent.putExtra("theme", selectedTheme.getTheme());
+            Log.e("Image path: ", selectedTheme.getImagePath());
+            startActivity(quizIntent);
+        }
+    };
 }

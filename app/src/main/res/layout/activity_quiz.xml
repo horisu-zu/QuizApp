@@ -27,13 +27,34 @@
 
     <TextView
         android:id="@+id/questionView"
-        android:text="Question"
+        android:text="Empty Quiz"
         android:textSize="25sp"
         android:gravity="center"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <com.google.android.material.card.MaterialCardView
+        app:strokeWidth="4dp"
+        app:strokeColor="#8B7CCC"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <ProgressBar
+            android:id="@+id/timeProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:indeterminate="false"
+            android:max="15000"
+            android:progress="0"
+            android:progressTint="#8B7CCC" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/answersRecycler"
